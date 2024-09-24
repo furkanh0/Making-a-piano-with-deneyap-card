@@ -1,0 +1,33 @@
+#include <deneyap.h>
+
+#define buzzer D0
+#define button1 D1
+#define button2 D2
+#define button3 D3
+#define button4 D4
+#define button5 D5
+
+int button1_durum=0, button2_durum=0, button3_durum=0, button4_durum=0, button5_durum=0;
+
+void setup() {
+  pinMode(buzzer, OUTPUT);
+  pinMode(button1, INPUT);
+  pinMode(button2, INPUT);
+  pinMode(button3, INPUT);
+  pinMode(button4, INPUT);
+  pinMode(button5, INPUT);
+}
+
+void loop() {
+  button1_durum = digitalRead(button1);
+  button2_durum = digitalRead(button2);
+  button3_durum = digitalRead(button3);
+  button4_durum = digitalRead(button4);
+  button5_durum = digitalRead(button5);
+
+  if(button1_durum == 1 || button2_durum == 1 || button3_durum == 1 || button4_durum == 1 || button5_durum == 1) {
+    digitalWrite(buzzer, LOW);  // Aktif buzzer için tetikleme sinyali (LOW)
+  } else {
+    digitalWrite(buzzer, HIGH); // Buzzer'ı kapatır (HIGH)
+  }
+}
